@@ -3,6 +3,8 @@
   import { Button, Dropdown, DropdownItem } from "flowbite-svelte";
   import { onMount } from "svelte";
   import { cn } from "../lib/utils/cn";
+  import { slide, fly } from "svelte/transition";
+  import { circInOut } from "svelte/easing";
 
   type Props = {
     songs: Array<CollectionEntry<"songs">>;
@@ -11,6 +13,7 @@
   let { songs }: Props = $props();
 
   let open = $state(false);
+  let visible = $state(false);
   let songElements: HTMLElement[] = $state([]);
   let songInView: string | undefined = $state();
 
@@ -21,15 +24,15 @@
       songElements.push(el);
     }
 
-    updateInView();
-    window.addEventListener("scroll", updateInView);
+    handleWindowScroll();
+    window.addEventListener("scroll", handleWindowScroll);
 
     return () => {
-      window.removeEventListener("scroll", updateInView);
+      window.removeEventListener("scroll", handleWindowScroll);
     };
   });
 
-  function updateInView() {
+  function updateActiveSong() {
     if (window.scrollY === 0) {
       songInView = undefined;
       return;
@@ -47,6 +50,11 @@
       }
     }
     songInView = nextValue;
+  }
+
+  function handleWindowScroll() {
+    updateActiveSong();
+    visible = window.scrollY > 50;
   }
 
   function scrollToSong(songId: string, onDone?: () => void) {
@@ -115,49 +123,53 @@
   </svg>
 {/snippet}
 
-<Button
-  id="jumper-menu-btn"
-  color="purple"
-  pill={true}
-  class="h-11 w-11 flex p-2"
->
-  {#if !open}
-    <svg
-      class="text-gray-800 dark:text-white"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="none"
-      viewBox="0 0 24 24"
+{#if visible}
+  <div transition:fly={{ y: 100, easing: circInOut }}>
+    <Button
+      id="jumper-menu-btn"
+      color="purple"
+      pill={true}
+      class="h-11 w-11 p-2"
     >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-width="2"
-        d="M5 7h14M5 12h14M5 17h14"
-      ></path>
-    </svg>
-  {:else}
-    <svg
-      class="w-6 h-6 text-gray-800 dark:text-white"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M6 18 17.94 6M18 18 6.06 6"
-      />
-    </svg>
-  {/if}
-</Button>
+      {#if !open}
+        <svg
+          class="text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="2"
+            d="M5 7h14M5 12h14M5 17h14"
+          ></path>
+        </svg>
+      {:else}
+        <svg
+          class="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18 17.94 6M18 18 6.06 6"
+          />
+        </svg>
+      {/if}
+    </Button>
+  </div>
+{/if}
 <Dropdown
   triggeredBy="#jumper-menu-btn"
   class="py-2"
