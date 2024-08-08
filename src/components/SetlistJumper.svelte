@@ -130,6 +130,7 @@
       color="purple"
       pill={true}
       class="h-11 w-11 p-2"
+      on:click={() => (open = !open)}
     >
       {#if !open}
         <svg
@@ -168,44 +169,43 @@
         </svg>
       {/if}
     </Button>
+    <Dropdown
+      triggeredBy="#jumper-menu-btn"
+      class="py-2"
+      placement="top-start"
+      bind:open
+    >
+      <DropdownItem
+        class={cn("flex items-center gap-2")}
+        on:click={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          open = false;
+        }}
+        disabled={!songInView}
+      >
+        {@render topIcon()}
+        Scroll to Top
+      </DropdownItem>
+      {#each songs as song}
+        <DropdownItem
+          class={cn(
+            "flex items-center gap-2 ",
+            "flex items-center gap-2 hover:!bg-purple-800",
+            songInView === song.slug && "bg-purple-800",
+          )}
+          on:click={(e) => scrollToSong(song.slug, () => (open = false))}
+        >
+          {#if songInView === song.slug}
+            {@render rightIcon()}
+          {:else}
+            {@render songIcon()}
+          {/if}
+          <div class="flex flex-col">
+            <span>{song.data.title}</span>
+            <span class="text-gray-400 text-xs italic">{song.data.artist}</span>
+          </div>
+        </DropdownItem>
+      {/each}
+    </Dropdown>
   </div>
 {/if}
-<Dropdown
-  triggeredBy="#jumper-menu-btn"
-  class="py-2"
-  placement="top-start"
-  bind:open
->
-  <DropdownItem
-    class={cn("flex items-center gap-2")}
-    on:click={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    disabled={!songInView}
-  >
-    {@render topIcon()}
-    Scroll to Top
-  </DropdownItem>
-  {#each songs as song}
-    <DropdownItem
-      class={cn(
-        "flex items-center gap-2 ",
-        "flex items-center gap-2 hover:!bg-purple-800",
-        songInView === song.slug && "bg-purple-800",
-      )}
-      on:click={(e) =>
-        scrollToSong(song.slug, () => {
-          if (e.target instanceof HTMLElement)
-            e.target.style.pointerEvents = "none";
-        })}
-    >
-      {#if songInView === song.slug}
-        {@render rightIcon()}
-      {:else}
-        {@render songIcon()}
-      {/if}
-      <div class="flex flex-col">
-        <span>{song.data.title}</span>
-        <span class="text-gray-400 text-xs italic">{song.data.artist}</span>
-      </div>
-    </DropdownItem>
-  {/each}
-</Dropdown>
