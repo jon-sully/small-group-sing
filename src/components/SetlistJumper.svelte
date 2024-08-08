@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { Button, Dropdown, DropdownItem } from "flowbite-svelte";
   import type { CollectionEntry } from "astro:content";
+  import { Button, Dropdown, DropdownItem } from "flowbite-svelte";
+  import { onMount } from "svelte";
+  import { cn } from "../lib/utils/cn";
 
   type Props = {
     songs: Array<CollectionEntry<"songs">>;
@@ -9,13 +11,49 @@
   let { songs }: Props = $props();
 
   let open = $state(false);
+  let songElements: HTMLElement[] = $state([]);
+  let songInView: string | undefined = $state();
 
-  $inspect(open);
+  onMount(() => {
+    for (let song of songs) {
+      const el = document.getElementById(song.slug);
+      if (!el) continue;
+      songElements.push(el);
+    }
 
-  function scrollToSong(songId: string) {
+    updateInView();
+    window.addEventListener("scroll", updateInView);
+
+    return () => {
+      window.removeEventListener("scroll", updateInView);
+    };
+  });
+
+  function updateInView() {
+    if (window.scrollY === 0) {
+      songInView = undefined;
+      return;
+    }
+
+    let nextValue = undefined;
+    for (let el of songElements) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top >= 0 && rect.top < window.innerHeight) {
+        nextValue = el.id;
+      } else if (rect.bottom <= window.innerHeight && rect.bottom > 0) {
+        nextValue = el.id;
+      } else if (rect.top < 0 && rect.bottom > window.innerHeight) {
+        nextValue = el.id;
+      }
+    }
+    songInView = nextValue;
+  }
+
+  function scrollToSong(songId: string, onDone?: () => void) {
     const songElement = document.getElementById(songId);
     if (!songElement) return;
     songElement.scrollIntoView({ behavior: "smooth" });
+    onDone?.();
   }
 </script>
 
@@ -57,12 +95,31 @@
   </svg>
 {/snippet}
 
+{#snippet rightIcon()}
+  <svg
+    class="w-4 h-4 text-gray-800 dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+      d="m10 16 4-4-4-4"
+    />
+  </svg>
+{/snippet}
+
 <Button
   id="jumper-menu-btn"
   color="purple"
   pill={true}
   class="h-11 w-11 flex p-2"
-  on:click={() => (open = !open)}
 >
   {#if !open}
     <svg
@@ -101,20 +158,38 @@
     </svg>
   {/if}
 </Button>
-<Dropdown triggeredBy="#jumper-menu-btn" class="py-2" placement="top-start">
+<Dropdown
+  triggeredBy="#jumper-menu-btn"
+  class="py-2"
+  placement="top-start"
+  bind:open
+>
   <DropdownItem
-    class="flex items-center gap-2"
+    class={cn("flex items-center gap-2")}
     on:click={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    disabled={!songInView}
   >
     {@render topIcon()}
     Scroll to Top
   </DropdownItem>
   {#each songs as song}
     <DropdownItem
-      class="flex items-center gap-2"
-      on:click={() => scrollToSong(song.slug)}
+      class={cn(
+        "flex items-center gap-2 ",
+        "flex items-center gap-2 hover:!bg-purple-800",
+        songInView === song.slug && "bg-purple-800",
+      )}
+      on:click={(e) =>
+        scrollToSong(song.slug, () => {
+          if (e.target instanceof HTMLElement)
+            e.target.style.pointerEvents = "none";
+        })}
     >
-      {@render songIcon()}
+      {#if songInView === song.slug}
+        {@render rightIcon()}
+      {:else}
+        {@render songIcon()}
+      {/if}
       <div class="flex flex-col">
         <span>{song.data.title}</span>
         <span class="text-gray-400 text-xs italic">{song.data.artist}</span>

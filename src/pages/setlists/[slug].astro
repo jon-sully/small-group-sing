@@ -43,9 +43,9 @@ const songRenders = await Promise.all(
             songs.map((song) => (
               <li class="flex flex-col">
                 <Button
-                  as="a"
+                  data-jump-button
+                  data-jump-to={song.slug}
                   variant="light"
-                  href={song.slug}
                   class="line-clamp-1 rounded border border-gray-700 p-1 px-2"
                 >
                   {song.data.title}
@@ -89,11 +89,27 @@ const songRenders = await Promise.all(
 </Layout>
 
 <script>
-  document.querySelectorAll("[data-jump-button]").forEach((btn, idx) => {
-    btn.addEventListener("click", () => {
-      document
-        .getElementById(`song-${idx}`)
-        ?.scrollIntoView({ behavior: "smooth" });
-    });
+  function onClickListener(e: MouseEvent) {
+    const target = e.target as HTMLElement;
+    if (!(target instanceof HTMLButtonElement)) return;
+
+    const jumpToValue = target.dataset.jumpTo;
+    if (!jumpToValue)
+      throw new Error("No data-jump-to attribute on jump button");
+
+    const targetElement = document.getElementById(jumpToValue);
+    if (!targetElement) throw new Error(`No element with ID ${jumpToValue}`);
+
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  }
+
+  document.querySelectorAll("[data-jump-button]").forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    const jumpToValue = button.dataset.jumpTo;
+    if (!jumpToValue)
+      throw new Error("No data-jump-to attribute on jump button");
+
+    button.addEventListener("click", onClickListener);
   });
 </script>
