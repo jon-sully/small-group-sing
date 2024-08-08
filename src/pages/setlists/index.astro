@@ -12,11 +12,15 @@ const allSetlists = await getCollection("setlists");
         <Button as="a" href="/" class="px-3 py-1.5" variant="purple"
             >← Home</Button
         >
-        <h1 class="text-4xl font-bold">Set Lists</h1>
-        <p class="text-sm text-gray-400">
-            Tap on a set list to see the lyrics for its songs.
-        </p>
-        <br />
-        {allSetlists.map((setlist) => <SetlistCard setlist={setlist} />)}
+        <header>
+            <h1 class="text-4xl font-bold">Set Lists</h1>
+            <p class="text-sm text-gray-400">
+                Tap on a set list to see the lyrics for its songs.
+            </p>
+            <hr class="my-4 border-gray-700" />
+        </header>
+        <section>
+            {allSetlists.map((setlist) => <SetlistCard setlist={setlist} />)}
+        </section>
     </main>
 </Layout>
