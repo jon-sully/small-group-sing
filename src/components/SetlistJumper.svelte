@@ -123,89 +123,80 @@
   </svg>
 {/snippet}
 
-{#if visible}
-  <div transition:fly={{ y: 100, easing: circInOut }}>
-    <Button
-      id="jumper-menu-btn"
-      color="purple"
-      pill={true}
-      class="h-11 w-11 p-2"
-      on:click={() => (open = !open)}
+<Button
+  color="purple"
+  pill={true}
+  class={cn(
+    "transition ease-in-out h-11 w-11 p-2",
+    !visible && "translate-y-44",
+  )}
+>
+  {#if !open}
+    <svg
+      class="text-gray-800 dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
     >
-      {#if !open}
-        <svg
-          class="text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-width="2"
-            d="M5 7h14M5 12h14M5 17h14"
-          ></path>
-        </svg>
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+        d="M5 7h14M5 12h14M5 17h14"
+      ></path>
+    </svg>
+  {:else}
+    <svg
+      class="w-6 h-6 text-gray-800 dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18 17.94 6M18 18 6.06 6"
+      />
+    </svg>
+  {/if}
+</Button>
+<Dropdown class="py-2 w-auto" placement="top-start" bind:open>
+  <DropdownItem
+    class="flex items-center gap-2 min-w-fit"
+    on:click={() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      open = false;
+    }}
+    disabled={!songInView}
+  >
+    {@render topIcon()}
+    Scroll to Top
+  </DropdownItem>
+  {#each songs as song}
+    <DropdownItem
+      class={cn(
+        "flex items-center gap-2 min-w-fit whitespace-nowrap hover:!bg-purple-800",
+        songInView === song.slug && "bg-purple-800",
+      )}
+      on:click={(e) => scrollToSong(song.slug, () => (open = false))}
+    >
+      {#if songInView === song.slug}
+        {@render rightIcon()}
       {:else}
-        <svg
-          class="w-6 h-6 text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18 17.94 6M18 18 6.06 6"
-          />
-        </svg>
+        {@render songIcon()}
       {/if}
-    </Button>
-    <Dropdown
-      triggeredBy="#jumper-menu-btn"
-      class="py-2"
-      placement="top-start"
-      bind:open
-    >
-      <DropdownItem
-        class={cn("flex items-center gap-2")}
-        on:click={() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          open = false;
-        }}
-        disabled={!songInView}
-      >
-        {@render topIcon()}
-        Scroll to Top
-      </DropdownItem>
-      {#each songs as song}
-        <DropdownItem
-          class={cn(
-            "flex items-center gap-2 ",
-            "flex items-center gap-2 hover:!bg-purple-800",
-            songInView === song.slug && "bg-purple-800",
-          )}
-          on:click={(e) => scrollToSong(song.slug, () => (open = false))}
-        >
-          {#if songInView === song.slug}
-            {@render rightIcon()}
-          {:else}
-            {@render songIcon()}
-          {/if}
-          <div class="flex flex-col">
-            <span>{song.data.title}</span>
-            <span class="text-gray-400 text-xs italic">{song.data.artist}</span>
-          </div>
-        </DropdownItem>
-      {/each}
-    </Dropdown>
-  </div>
-{/if}
+      <div class="flex flex-col">
+        <span>{song.data.title}</span>
+        <span class="text-gray-400 text-xs italic">{song.data.artist}</span>
+      </div>
+    </DropdownItem>
+  {/each}
+</Dropdown>
