@@ -5,22 +5,26 @@ import Layout from "../../layouts/Layout.astro";
 import Button from "../../components/Button.astro";
 
 const allSetlists = await getCollection("setlists");
+
+allSetlists.sort((a, b) => {
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
 
 <Layout title="Setlists">
-    <main class="p-4">
-        <Button as="a" href="/" class="px-3 py-1.5" variant="purple"
-            >← Home</Button
-        >
-        <header>
-            <h1 class="text-4xl font-bold">Set Lists</h1>
-            <p class="text-sm text-gray-400">
-                Tap on a set list to see the lyrics for its songs.
-            </p>
-            <hr class="my-4 border-gray-700" />
-        </header>
-        <section>
-            {allSetlists.map((setlist) => <SetlistCard setlist={setlist} />)}
-        </section>
-    </main>
+  <main>
+    <header class="mt-4">
+      <Button as="a" href="/" class="px-3 py-1.5" variant="purple">
+        ← Home
+      </Button>
+      <h1 class="text-4xl font-bold">Set Lists</h1>
+      <p class="text-sm text-gray-400">
+        Tap on a set list to see the lyrics for its songs.
+      </p>
+      <hr class="my-4 border-gray-700" />
+    </header>
+    <section class="space-y-4">
+      {allSetlists.map((setlist) => <SetlistCard setlist={setlist} />)}
+    </section>
+  </main>
 </Layout>

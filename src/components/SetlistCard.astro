@@ -1,9 +1,10 @@
 ---
+import dayjs from 'dayjs'
 import type { CollectionEntry } from "astro:content";
 import { getEntries } from "astro:content";
 
 interface Props {
-    setlist: CollectionEntry<"setlists">;
+  setlist: CollectionEntry<"setlists">;
 }
 
 const { setlist } = Astro.props;
@@ -12,24 +13,24 @@ const songs = await getEntries(setlist.data.songs);
 ---
 
 <a
-    href={`/setlists/${setlist.id}`}
-    class="block rounded-lg border border-gray-200 bg-white p-4 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+  href={`/setlists/${setlist.id}`}
+  class="block rounded-lg border border-gray-200 bg-white p-4 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
 >
-    <p class="text-xs font-normal text-gray-700 dark:text-gray-400">
-        {setlist.data.date.toLocaleDateString()}
-    </p>
-    <h5
-        class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
-    >
-        {setlist.data.name}
-    </h5>
-    <ul class="text-sm font-normal text-gray-700 dark:text-gray-400">
-        {
-            songs.map((song) => (
-                <li>
-                    {song.data.title} ({song.data.artist})
-                </li>
-            ))
-        }
-    </ul>
+  <p class="text-xs font-normal text-gray-700 dark:text-gray-400">
+    {dayjs(setlist.data.date).format('MM/DD/YYYY [@] h:mma')}
+  </p>
+  <h5
+    class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    {setlist.data.name}
+  </h5>
+  <ul class="text-sm font-normal text-gray-700 dark:text-gray-400">
+    {
+      songs.map((song) => (
+        <li>
+          {song.data.title} ({song.data.artist})
+        </li>
+      ))
+    }
+  </ul>
 </a>

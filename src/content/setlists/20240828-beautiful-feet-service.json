@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Beautiful Feet Main Service",
+  "date": "2024-08-28T15:00:00.000Z",
+  "songs": [
+    "worship-initiative-oh-but-god",
+    "maverick-city-music-promises",
+    "phil-wickham-living-hope",
+    "housefires-build-my-life"
+  ]
+}

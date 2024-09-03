@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Home Group Worship",
+  "date": "2024-07-17T00:00:00.000Z",
+  "songs": [
+    "elevation-worship-same-god",
+    "maverick-city-music-promises",
+    "elevation-worship-graves-into-gardens",
+    "worship-initiative-oh-but-god",
+    "charity-gayle-i-speak-jesus"
+  ]
+}
