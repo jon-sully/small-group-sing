@@ -5,9 +5,11 @@ import { getCollection, getEntries } from "astro:content";
 import Button from "../../components/Button.astro";
 import SetlistJumper from "../../components/SetlistJumper.svelte";
 import Layout from "../../layouts/Layout.astro";
+import dayjs from "dayjs";
 
 interface Props {
   entry: CollectionEntry<"setlists">;
+  description: string;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -16,11 +18,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: {
       slug: entry.id,
     },
-    props: { entry },
+    props: {
+      entry,
+      description: `Worship set list for ${entry.data.name} on ${dayjs(entry.data.date).format('MM/DD/YYYY [@] h:mma')}`
+    },
   }));
 };
 
-const { entry } = Astro.props;
+const { entry, description } = Astro.props;
 
 const songs = await getEntries(entry.data.songs);
 const songRenders = await Promise.all(
@@ -28,7 +33,7 @@ const songRenders = await Promise.all(
 );
 ---
 
-<Layout title={entry.data.name}>
+<Layout title={entry.data.name} description={description}>
   <main class="mt-4">
     <Button as="a" variant="purple" href="/setlists" class="px-3 py-1.5">
       ← All Setlists
