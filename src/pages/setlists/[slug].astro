@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     },
     props: {
       entry,
-      description: `Worship set list for ${entry.data.name} on ${dayjs(entry.data.date).format('MM/DD/YYYY [@] h:mma')}`
+      description: `Worship set list for ${entry.data.name} on ${dayjs(entry.data.date).format("MM/DD/YYYY [@] h:mma")}`,
     },
   }));
 };

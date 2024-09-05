@@ -2,8 +2,5 @@
   "$schema": "../../../.astro/collections/setlists.schema.json",
   "name": "Beautiful Feet Prayer Service",
   "date": "2024-08-28T13:00:00.000Z",
-  "songs": [
-    "worship-initiative-oh-but-god",
-    "phil-wickham-living-hope"
-  ]
+  "songs": ["worship-initiative-oh-but-god", "phil-wickham-living-hope"]
 }

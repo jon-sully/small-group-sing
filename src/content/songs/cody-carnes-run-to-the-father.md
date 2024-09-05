@@ -1,5 +1,5 @@
 ---
-title: Run to the Father 
+title: Run to the Father
 artist: Cody Carnes
 ---
 
@@ -62,19 +62,19 @@ So I'll run to the Father again and again and again and again
 ## Bridge
 
 My heart has been in Your sights
-            
+
 Long before my first breath
-           
+
 Running into Your arms
-               
+
 Is running to life from death
-                 
+
 And I feel this rush deep in my chest
-                
+
 Your mercy is calling out
-          
+
 Just as I am You pull me in
-              
+
 And I know I need You now
 
 ## Chorus

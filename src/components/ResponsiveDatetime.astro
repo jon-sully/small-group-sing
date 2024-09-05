@@ -4,9 +4,14 @@ import dayjsUtcPlugin from "dayjs/plugin/utc";
 import dayjsTzPlugin from "dayjs/plugin/timezone";
 import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
 
+/**
+ * A componenet that renders a date in America/Chicago TZ initially, then
+ * updates the date to the browser's TZ if JS is enabled.
+ */
+
 interface Props {
   datetime: Date;
-  class?: HTMLElement['className']; 
+  class?: HTMLElement["className"];
 }
 
 const { datetime, class: className } = Astro.props;

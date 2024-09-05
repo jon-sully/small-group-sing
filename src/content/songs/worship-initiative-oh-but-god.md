@@ -55,7 +55,7 @@ Now this is my sure testimony
 
 Oh but God oh but God
 
-## Chorus 
+## Chorus
 
 Rich in mercy how You loved me
 
