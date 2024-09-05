@@ -71,8 +71,6 @@ const songs = await getEntries(setlist.data.songs);
         "[data-utc-datetime]",
       );
 
-      console.log(datetimeEl?.dataset.utcDatetime)
-
       if (datetimeEl && datetimeEl.dataset.utcDatetime) {
         datetimeEl.textContent = dayjs(datetimeEl.dataset.utcDatetime)
           .tz(localTz)
