@@ -5,6 +5,7 @@ export default {
     "prettier-plugin-astro",
     "prettier-plugin-tailwindcss",
     "prettier-plugin-svelte",
+    "prettier-plugin-astro-organize-imports",
   ],
   tailwindFunctions: ["tv"],
   overrides: [

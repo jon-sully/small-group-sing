@@ -1,10 +1,10 @@
 ---
-import dayjs from "dayjs";
-import dayjsTzPlugin from "dayjs/plugin/timezone";
-import dayjsUtcPlugin from "dayjs/plugin/utc";
-import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
 import type { CollectionEntry } from "astro:content";
 import { getEntries } from "astro:content";
+import dayjs from "dayjs";
+import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
+import dayjsTzPlugin from "dayjs/plugin/timezone";
+import dayjsUtcPlugin from "dayjs/plugin/utc";
 import ResponsiveDatetime from "./ResponsiveDatetime.astro";
 
 interface Props {

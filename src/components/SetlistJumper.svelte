@@ -3,8 +3,6 @@
   import { Button, Dropdown, DropdownItem } from "flowbite-svelte";
   import { onMount } from "svelte";
   import { cn } from "../lib/utils/cn";
-  import { slide, fly } from "svelte/transition";
-  import { circInOut } from "svelte/easing";
 
   type Props = {
     songs: Array<CollectionEntry<"songs">>;

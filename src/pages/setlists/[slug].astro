@@ -2,10 +2,10 @@
 import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntries } from "astro:content";
+import dayjs from "dayjs";
 import Button from "../../components/Button.astro";
 import SetlistJumper from "../../components/SetlistJumper.svelte";
 import Layout from "../../layouts/Layout.astro";
-import dayjs from "dayjs";
 
 interface Props {
   entry: CollectionEntry<"setlists">;

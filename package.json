@@ -5,6 +5,7 @@
   "scripts": {
     "astro": "astro",
     "build": "astro check && astro build",
+    "check": "bun astro check && bun svelte-check",
     "dev": "astro dev",
     "format": "bun prettier . --write",
     "preview": "astro preview",
@@ -29,7 +30,9 @@
     "@tailwindcss/typography": "^0.5.13",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.9",
     "prettier-plugin-svelte": "^3.2.6",
-    "prettier-plugin-tailwindcss": "^0.6.5"
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "svelte-check": "^4.0.1"
   }
 }

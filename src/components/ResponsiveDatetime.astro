@@ -1,8 +1,8 @@
 ---
 import dayjs from "dayjs";
-import dayjsUtcPlugin from "dayjs/plugin/utc";
-import dayjsTzPlugin from "dayjs/plugin/timezone";
 import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
+import dayjsTzPlugin from "dayjs/plugin/timezone";
+import dayjsUtcPlugin from "dayjs/plugin/utc";
 
 /**
  * A componenet that renders a date in America/Chicago TZ initially, then
@@ -31,9 +31,9 @@ const defaultDateValue = dayjs(datetime)
 
 <script>
   import dayjs from "dayjs";
-  import dayjsUtcPlugin from "dayjs/plugin/utc";
-  import dayjsTzPlugin from "dayjs/plugin/timezone";
   import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
+  import dayjsTzPlugin from "dayjs/plugin/timezone";
+  import dayjsUtcPlugin from "dayjs/plugin/utc";
 
   dayjs.extend(dayjsUtcPlugin);
   dayjs.extend(dayjsTzPlugin);
