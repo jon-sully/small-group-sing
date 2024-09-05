@@ -1,54 +1,41 @@
-# Astro Starter Kit: Basics
+# Simple Worship
 
-```sh
-npm create astro@latest -- --template basics
+Simple Worship is a _very simple_ blog-like webite that makes it easy for folks
+who are attending small, "backyard" worship sessions to find lyrics for the
+songs that will be sung. This is useful for times when someone is hosting a
+worship session, and there are no screens or projectors to show lyrics with.
+
+# Adding Content
+
+## Adding a Setlist
+
+A setlist is a list of songs - they function as "orders of worship" in this
+context. To add a setlist, clone an existing setlist file in the
+`/src/content/setlists/` directtory. Rename it so that the first 8 characters
+are the date in `YYYYMMDD` format, then give the remainder of the filename a
+slug that describes the event that the setlist is for. Setlist file names need
+to be unique.
+
+Finally, fill out the info in each field of your new setlist. Dates should be
+in UTC timezone. Songs are based on the names of files (excluding extensions)
+in the `/src/content/songs/` directory. If you provide a song that doesn't have
+a corresponding file in the `songs` content folder, then the site will fail to
+build.
+
+If a song doesn't exist, you'll need to add it.
+
+## Adding Songs
+
+To add a song (which can in turn be added to a setlist), clone an existing song
+in the `/src/content/songs/` folder. Rename that file to the following format:
+
+```
+<artist-name>-<song-name>.md
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Leading with the artist name helps sort the files visually in the directory. File names must, of course, be unique.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Next, update the front matter of the document - this is the YAML data between the `---` markers at the top of the file.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Finally, update the lyrics. Pay attention to how the markdown is laid out in existing files.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
