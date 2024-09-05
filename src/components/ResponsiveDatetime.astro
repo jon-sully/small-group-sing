@@ -1,0 +1,54 @@
+---
+import dayjs from "dayjs";
+import dayjsUtcPlugin from "dayjs/plugin/utc";
+import dayjsTzPlugin from "dayjs/plugin/timezone";
+import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
+
+interface Props {
+  datetime: Date;
+  class?: HTMLElement['className']; 
+}
+
+const { datetime, class: className } = Astro.props;
+
+dayjs.extend(dayjsUtcPlugin);
+dayjs.extend(dayjsTzPlugin);
+dayjs.extend(dayjsAdvancedFormatPlugin);
+
+const defaultDateValue = dayjs(datetime)
+  .tz("America/Chicago")
+  .format("MM/DD/YYYY [@] h:mmA z");
+---
+
+<datetime-responsive data-utc-datetime={datetime}>
+  <span class={className}>{defaultDateValue}</span>
+</datetime-responsive>
+
+<script>
+  import dayjs from "dayjs";
+  import dayjsUtcPlugin from "dayjs/plugin/utc";
+  import dayjsTzPlugin from "dayjs/plugin/timezone";
+  import dayjsAdvancedFormatPlugin from "dayjs/plugin/advancedFormat";
+
+  dayjs.extend(dayjsUtcPlugin);
+  dayjs.extend(dayjsTzPlugin);
+  dayjs.extend(dayjsAdvancedFormatPlugin);
+
+  const localTz = dayjs.tz.guess();
+
+  class ResponsiveDatetime extends HTMLElement {
+    constructor() {
+      super();
+
+      const spanEl: HTMLElement | null = this.querySelector("span");
+
+      if (spanEl && this.dataset.utcDatetime) {
+        spanEl.textContent = dayjs(this.dataset.utcDatetime)
+          .tz(localTz)
+          .format("MM/DD/YYYY [@] h:mmA z");
+      }
+    }
+  }
+
+  customElements.define("datetime-responsive", ResponsiveDatetime);
+</script>
