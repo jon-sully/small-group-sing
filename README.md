@@ -1,6 +1,6 @@
 # Simple Worship
 
-Simple Worship is a _very simple_ blog-like webite that makes it easy for folks
+Simple Worship is a _very simple_ blog-like site that makes it easy for folks
 who are attending small, "backyard" worship sessions to find lyrics for the
 songs that will be sung. This is useful for times when someone is hosting a
 worship session, and there are no screens or projectors to show lyrics with.
