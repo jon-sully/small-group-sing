@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.URL,
+  site: process.env.URL,
   integrations: [svelte(), tailwind(), sitemap()],
   experimental: {
     env: {
