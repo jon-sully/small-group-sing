@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Living Room Worship",
+  "date": "2024-09-18T00:00:00.000Z",
+  "songs": [
+    "cody-carnes-take-you-at-your-word",
+    "worship-initiative-oh-but-god",
+    "maverick-city-music-promises",
+    "cory-asbury-reckless-love",
+    "housefires-on-and-on"
+  ]
+}
