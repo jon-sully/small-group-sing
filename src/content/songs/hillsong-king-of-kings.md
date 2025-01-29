@@ -1,6 +1,6 @@
 ---
-title: Same God
-artist: Elevation Worship
+title: King of Kings
+artist: Hillsong Worship
 ---
 
 ## Verse 1
