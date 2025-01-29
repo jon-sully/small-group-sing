@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Living Room Worship",
+  "date": "2025-01-25T00:00:00.000Z",
+  "songs": [
+    "hillsong-christ-is-enough",
+    "passion-lord-i-need-you",
+    "aaron-keyes-abide",
+    "hillsong-never-walk-alone",
+    "hillsong-king-of-kings",
+    "chris-tomlin-holy-forever",
+    "chris-tomlin-i-stand-amazed"
+  ]
+}
