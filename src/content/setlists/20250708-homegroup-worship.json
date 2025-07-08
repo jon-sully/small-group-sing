@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Living Room Worship",
+  "date": "2025-07-08T00:00:00.000Z",
+  "songs": [
+    "maverick-city-music-firm-foundation",
+    "cody-carnes-reign-above-it-all",
+    "bethel-music-another-like-you",
+    "housefires-build-my-life",
+    "passion-lord-i-need-you",
+    "stuart-townend-how-deep-the-fathers-love-for-us"
+  ]
+}
