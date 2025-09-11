@@ -13,7 +13,6 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -32,6 +31,16 @@ const { title, description } = Astro.props;
   <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
     <div class="mx-auto max-w-screen-sm px-4">
       <slot />
+      <p class="text-center">
+        A Project by
+        <a href="https://jonsully.net" target="_blank" class="underline">Jon</a
+        >, forked from
+        <a
+          href="https://github.com/walker-tx/simpleworship.live"
+          target="_blank"
+          class="underline">Walker</a
+        >, originated by Claude.
+      </p>
     </div>
   </body>
 </html>

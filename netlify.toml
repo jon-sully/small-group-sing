@@ -1,0 +1,12 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+
+# Optional: lock Node version used by Netlify build image
+[build.environment]
+  NODE_VERSION = "20"
+
+# You can add context-specific config later, e.g.:
+# [context.production]
+# [context.deploy-preview]
+# [context.branch-deploy]

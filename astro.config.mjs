@@ -1,12 +1,11 @@
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig, envField } from "astro/config";
-import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: process.env.URL,
-  integrations: [svelte(), tailwind(), sitemap()],
+  integrations: [svelte(), tailwind()],
   experimental: {
     env: {
       schema: {

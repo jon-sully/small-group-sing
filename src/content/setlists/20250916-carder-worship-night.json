@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../.astro/collections/setlists.schema.json",
+  "name": "Carder Worship Night",
+  "date": "2025-09-16T17:00:00-05:00",
+  "songs": [
+    "matt-maher-lord-i-need-you",
+    "tauren-wells-hills-and-valleys",
+    "upperroom-give-me-jesus"
+  ]
+}
