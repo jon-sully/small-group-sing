@@ -1,0 +1,76 @@
+---
+title: In Christ Alone
+artist: Passion
+---
+
+## Verse 1
+
+In Christ alone my hope is found
+
+He is my light my strength my song
+
+This cornerstone this solid ground
+
+Firm through the fiercest drought and storm
+
+
+
+What heights of love
+
+What depths of peace
+
+When fears are stilled
+
+When strivings cease
+
+My Comforter my all in all
+
+Here in the love of Christ I stand
+
+```
+1 [6 5] [1/3 4] 5 1
+```
+
+```
+[1/3 4] [6 5]
+```
+
+## Verse 2
+
+There in the ground His body lay
+
+Light of the world by darkness slain
+
+Then bursting forth in glorious day
+
+Up from the grave He rose again
+
+
+
+And as He stands in victory
+
+Sin’s curse has lost its grip on me
+
+For I am His and He is mine
+
+Bought with the precious blood of Christ
+
+## Verse 3
+
+No guilt in life no fear in death
+
+This is the power of Christ in me
+
+From life’s first cry to final breath
+
+Jesus commands my destiny
+
+
+
+No power of Hell no scheme of man
+
+Can ever pluck me from His hand
+
+Till He returns or calls me home
+
+Here in the power of Christ I’ll stand

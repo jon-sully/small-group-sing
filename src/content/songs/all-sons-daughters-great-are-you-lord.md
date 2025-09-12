@@ -1,0 +1,49 @@
+---
+title: Great Are You Lord
+artist: All Sons & Daughters
+---
+
+## Verse
+
+You give life, You are love
+
+You bring light to the darkness
+
+You give hope, You restore
+
+Every heart that is broken
+
+Great are You, Lord
+
+```
+4 6 5 -
+```
+
+
+
+## Chorus
+
+It's Your breath in our lungs
+
+So we pour out our praise
+
+We pour out our praise
+
+It's Your breath in our lungs
+
+So we pour out our praise
+
+To You only
+
+## Bridge
+
+All the earth will shout Your praise
+
+Our hearts will cry, these bones will sing
+
+Great are You, Lord
+
+```
+1... 4 1
+```
+

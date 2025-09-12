@@ -14,7 +14,7 @@ Without You, I fall apart
 You're the One that guides my heart
 
 ```
-1 [4-1] 6 4
+1 [4-1] 6 [5-4]
 ```
 
 ## Chorus
