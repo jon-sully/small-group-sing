@@ -1,5 +1,5 @@
 ---
-title: Strength of My Life
+title: Strength of My Life (J@G)
 artist: Old Hymms
 ---
 
@@ -26,4 +26,3 @@ Be the strength of my life today.
 ```
 4 1 [4 4m] 1
 ```
-

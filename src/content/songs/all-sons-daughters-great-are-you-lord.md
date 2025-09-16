@@ -1,5 +1,5 @@
 ---
-title: Great Are You Lord
+title: Great Are You Lord (D@A)
 artist: All Sons & Daughters
 ---
 
@@ -46,4 +46,3 @@ Great are You, Lord
 ```
 1... 4 1
 ```
-

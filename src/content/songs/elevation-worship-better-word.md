@@ -1,5 +1,5 @@
 ---
-title: Better Word
+title: Better Word (J@E)
 artist: Elevation Worship
 ---
 

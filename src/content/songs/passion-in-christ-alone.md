@@ -1,5 +1,5 @@
 ---
-title: In Christ Alone
+title: In Christ Alone (D@G)
 artist: Passion
 ---
 
