@@ -55,6 +55,10 @@ To every soul held captive by depression
 
 I speak Jesus
 
+```
+1 6 4 1
+```
+
 ## Bridge
 
 Shout Jesus from the mountains, Jesus in the streets

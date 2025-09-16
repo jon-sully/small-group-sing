@@ -67,6 +67,11 @@ Jesus, Your presence
 
 Is the comfort of my soul
 
+```
+4 - 1 -
+4 - 1 -
+```
+
 ## Bridge
 
 So let all that I am
@@ -96,4 +101,3 @@ What more could I ask for?
 ```
 4 5 6 1/3
 ```
-

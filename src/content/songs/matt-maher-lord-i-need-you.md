@@ -44,6 +44,10 @@ And where You are, Lord, I am free
 
 Holiness is Christ in me
 
+```
+1 [4-1] 6 [5-4]
+```
+
 ## Chorus
 
 Lord, I need You, oh, I need You
@@ -53,3 +57,10 @@ Every hour I need You
 My one defense, my righteousness
 
 Oh God, how I need You
+
+```
+1 4 1 5
+6 4 1 5
+3 4 1 4
+1 5 1
+```

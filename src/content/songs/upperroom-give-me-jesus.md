@@ -51,6 +51,10 @@ Now that I've tastеd of Your goodness
 
 Nothing else will satisfy
 
+```
+1 4 [2 1/3] 4
+```
+
 ## Chorus
 
 Give me Jesus
@@ -60,6 +64,10 @@ Give me Jesus
 You can have all this world
 
 You can have all this world
+
+```
+1 5 [2 6 4 5]
+```
 
 ## Bridge
 

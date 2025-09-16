@@ -57,6 +57,10 @@ Every failure covered now in grace
 
 For the Lamb has overcome
 
+```
+1 5 6 [5 4]
+```
+
 ## Bridge
 
 On that cross, hallelujah
@@ -78,4 +82,3 @@ Be lifted higher forever
 ```
 1 [5 4] -
 ```
-

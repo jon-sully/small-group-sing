@@ -52,6 +52,10 @@ I've watched my dreams get broken. In You, I hope again
 
 No matter what I know I'm safe inside Your hands
 
+```
+6 5 4 1
+```
+
 ## Chorus
 
 On the mountains I will bow my life, to the One who set me there
@@ -65,3 +69,7 @@ When I'm walking through the valley, I know I am not alone
 You're God of the hills and valleys, hills and valleys
 
 God of the hills and valleys, and I am not alone (I am not alone)
+
+```
+6 5 4 1
+```

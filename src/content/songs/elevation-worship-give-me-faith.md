@@ -54,9 +54,17 @@ I need You
 
 To pierce through the dark and cleanse every part of me
 
+```
+1 5 6 4
+```
+
 
 
 All I am, I surrender
+
+```
+6 4 5 -
+```
 
 ## Bridge
 
@@ -68,4 +76,3 @@ My flesh may fail, but my God, You never will
 4 1 5 6
 4 1 6 5
 ```
-

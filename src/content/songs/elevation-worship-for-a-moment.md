@@ -49,6 +49,11 @@ But until it is finished
 
 I'll give praise just the same
 
+```
+1 5 4 -
+2 6 5 -
+```
+
 ## Bridge
 
 For we have this hope
@@ -63,4 +68,3 @@ We will never be alone
 2 - 4 -
 1 - 5 -
 ```
-
